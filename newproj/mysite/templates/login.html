@@ -1,0 +1,69 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>User Login</title>
+    <link rel="stylesheet" href="style3.css">
+</head>
+<body>
+
+    <div class="main">
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo">Internship Portal</h2>
+            </div>
+
+        </div> 
+        <div class="content">
+
+                <!-- alert msg -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    <!-- message -->
+    {% if messages %}
+    <!-- category -->
+    {% for category, message in messages %}
+    <!--  -->
+    {% if category == 'error' %}
+    <div class="alert alert-danger alter-dismissable fade show" role="alert">
+      {{ message }}
+      <button type="button" class="close" data-dismiss="alert">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% else %}
+    <div class="alert alert-success alter-dismissable fade show" role="alert">
+      {{ message }}
+      <button type="button" class="close" data-dismiss="alert">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endif %} {% endfor %} {% endif %} {% endwith %}
+
+
+
+            <h1><br><span>ELORA</span> <br>join us...</h1>
+            <p class="par"><br>ELORA can be a useful tool for students who are looking for internships. We can help students<br>to find suitable internship opportunities, apply for them, and manage their internship experience.<br>We provide a list of available internship opportunities from various companies and organizations.<br>The students are able to filter the list based on their interests and track their internship progress.<br>Overall, ELORA can help students to have a more organized and effective internship experience.</p>
+
+                <button class="cn"><a href="{{url_for('home')}}">Go Back</a></button>
+
+                <div class="form">
+                    <h2>LOGIN HERE</h2>
+                    <form action="{{ url_for('web') }}" method="post">
+                        {{ form.hidden_tag() }}
+                        <input type="text" name="username" placeholder="Enter Username Here">
+                        <input type="password" name="password" placeholder="Enter Password Here">
+                        {{ form.submit }}
+                    </form>
+
+                    <p class="link">Don't have an account<br>
+                    <a href="{{url_for('register')}}">Sign up </a> here</a></p>
+                    
+
+                </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+    
+</html>
